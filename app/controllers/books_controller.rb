@@ -38,7 +38,7 @@ class BooksController < ApplicationController
   def update
     respond_to do |format|
       if @book.update(book_params)
-        format.html { redirect_to book_url(@book), notice: "Book was successfully updated." }
+        format.html { redirect_to (@book), notice: "Book was successfully updated." }
         format.json { render :show, status: :ok, location: @book }
       else
         format.html { render :edit, status: :unprocessable_entity }
@@ -68,6 +68,6 @@ class BooksController < ApplicationController
       p "**************************************************"
       p params
       p "**************************************************"
-      params.require(:book).permit(:title, :memo)
+      params.require(:book).permit(:title, :memo, :author)
     end
 end
